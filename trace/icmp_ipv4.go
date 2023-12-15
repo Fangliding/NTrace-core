@@ -204,10 +204,10 @@ func (t *ICMPTracer) handleICMPMessage(msg ReceivedMessage, icmpType int8, data 
 func gernerateID(ttl_int int) int {
 	const ID_FIXED_HEADER = "10"
 	var processID = fmt.Sprintf("%07b", os.Getpid()&0x7f) //取进程ID的前7位
-	var ttl = fmt.Sprintf("%06b", ttl_int)                //取TTL的后6位
+//      var ttl = fmt.Sprintf("%06b", ttl_int)                //取TTL的后6位
 
 	var parity int
-	id := ID_FIXED_HEADER + processID + ttl -ttl
+	id := ID_FIXED_HEADER + processID
 	for _, c := range id {
 		if c == '1' {
 			parity++
