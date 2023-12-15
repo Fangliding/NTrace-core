@@ -207,7 +207,7 @@ func gernerateID(ttl_int int) int {
 	var ttl = fmt.Sprintf("%06b", ttl_int)                //取TTL的后6位
 
 	var parity int
-	id := ID_FIXED_HEADER + processID + ttl
+	id := ID_FIXED_HEADER + processID
 	for _, c := range id {
 		if c == '1' {
 			parity++
